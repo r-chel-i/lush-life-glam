@@ -29,10 +29,10 @@ scale = Vector2(1.0465, 1.12069)
 [node name="SpeechBubbleTail" type="Sprite2D" parent="Speech Bubble"]
 z_index = 1
 position = Vector2(0, 28.5538)
-scale = Vector2(1, 1)
 texture = ExtResource("3_6qxvi")
 
 [node name="Bubble" type="NinePatchRect" parent="Speech Bubble"]
+layout_mode = 0
 offset_left = -69.3215
 offset_top = -206.123
 offset_right = 371.678
@@ -45,6 +45,7 @@ patch_margin_bottom = 61
 
 [node name="Label" type="Label" parent="Speech Bubble"]
 z_index = 3
+layout_mode = 0
 offset_left = -28.0
 offset_top = -170.0
 offset_right = 332.0
