@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cpdun2qynctif"]
+[gd_scene load_steps=39 format=3 uid="uid://cpdun2qynctif"]
 
 [ext_resource type="Texture2D" uid="uid://c3igjs4qttd07" path="res://assets/salon_background.jpg" id="1_1bhcl"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_1d3mw"]
@@ -37,6 +37,7 @@
 [ext_resource type="Script" path="res://scripts/lips_select.gd" id="25_far3g"]
 [ext_resource type="Script" path="res://scripts/shirt_select.gd" id="29_nj4vp"]
 [ext_resource type="PackedScene" uid="uid://bvfhagtxo8wnp" path="res://scenes/customer.tscn" id="37_aqpng"]
+[ext_resource type="Texture2D" uid="uid://doepp2q5n04te" path="res://assets/hair/chair.png" id="38_n55ob"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_1d3mw")
@@ -245,3 +246,9 @@ metadata/_edit_use_anchors_ = true
 [node name="Customer" parent="." instance=ExtResource("37_aqpng")]
 position = Vector2(-207, 110)
 scale = Vector2(0.25, 0.25)
+
+[node name="Chair" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(-193.25, 58.25)
+scale = Vector2(0.298096, 0.298096)
+texture = ExtResource("38_n55ob")

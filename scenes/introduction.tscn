@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://8bl12luwgj06" path="res://assets/speech_bubble.png" id="4_d34ut"]
 [ext_resource type="FontFile" uid="uid://dt2ur755qe8v6" path="res://assets/Nunito-Bold.ttf" id="5_vektn"]
 [ext_resource type="PackedScene" uid="uid://bvfhagtxo8wnp" path="res://scenes/customer.tscn" id="6_prn01"]
-[ext_resource type="Texture2D" uid="uid://brjtbh42p3f3e" path="res://assets/character/chair.png" id="7_v012f"]
+[ext_resource type="Texture2D" uid="uid://doepp2q5n04te" path="res://assets/hair/chair.png" id="7_b4y6w"]
 
 [node name="Introduction" type="Node2D"]
 script = ExtResource("1_jwdpu")
@@ -67,4 +67,9 @@ scale = Vector2(0.25, 0.25)
 z_index = -2
 position = Vector2(-187, 54)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_v012f")
+
+[node name="Chair2" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(-193.25, 58.25)
+scale = Vector2(0.298096, 0.298096)
+texture = ExtResource("7_b4y6w")

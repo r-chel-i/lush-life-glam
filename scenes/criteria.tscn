@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdxyhpioexon1"]
+[gd_scene load_steps=8 format=3 uid="uid://cdxyhpioexon1"]
 
 [ext_resource type="Texture2D" uid="uid://c3igjs4qttd07" path="res://assets/salon_background.jpg" id="1_4mowy"]
 [ext_resource type="Script" path="res://scripts/criteria.gd" id="1_s4io2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://8bl12luwgj06" path="res://assets/speech_bubble.png" id="3_h5po5"]
 [ext_resource type="FontFile" uid="uid://dt2ur755qe8v6" path="res://assets/Nunito-Bold.ttf" id="4_27ax6"]
 [ext_resource type="PackedScene" uid="uid://bvfhagtxo8wnp" path="res://scenes/customer.tscn" id="6_ad7i8"]
+[ext_resource type="Texture2D" uid="uid://doepp2q5n04te" path="res://assets/hair/chair.png" id="7_4s4hu"]
 
 [node name="Criteria" type="Node2D"]
 script = ExtResource("1_s4io2")
@@ -34,6 +35,7 @@ scale = Vector2(1, 1)
 texture = ExtResource("2_6t0gc")
 
 [node name="Bubble" type="NinePatchRect" parent="Speech Bubble"]
+layout_mode = 0
 offset_left = -69.3215
 offset_top = -206.123
 offset_right = 371.678
@@ -46,6 +48,7 @@ patch_margin_bottom = 61
 
 [node name="Label" type="Label" parent="Speech Bubble"]
 z_index = 3
+layout_mode = 0
 offset_left = -28.0
 offset_top = -170.0
 offset_right = 332.0
@@ -60,3 +63,9 @@ autowrap_mode = 3
 [node name="Customer" parent="." instance=ExtResource("6_ad7i8")]
 position = Vector2(-207, 110)
 scale = Vector2(0.25, 0.25)
+
+[node name="Chair" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(-193.25, 58.25)
+scale = Vector2(0.298096, 0.298096)
+texture = ExtResource("7_4s4hu")

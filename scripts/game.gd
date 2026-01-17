@@ -70,7 +70,7 @@ var options = {
 	],
 }
 
-# --- CATEGORY SWITCHING ---
+# Switch categories (hair, skin, etc.)
 func switch_category(category):
 	current_category = category
 	clear_option_selection()
@@ -85,13 +85,18 @@ func switch_category(category):
 		else:
 			push_warning("Preview missing in slot %d" % i)
 
+func _on_category_pressed(category):
+	switch_category(category)
+
+
 func clear_option_selection():
 	for slot in option_slots:
 		if slot and slot is Button:
 			slot.pressed = false
 
-# --- OPTION SELECTION ---
-func on_option_pressed(index):
+# Choose option
+func _on_option_pressed(index):
+	print("Button pressed!", index)
 	var path = options[current_category][index]
 
 	match current_category:
@@ -121,13 +126,11 @@ func on_option_pressed(index):
 			targets[Category.SHIRT].texture = load(path)
 			Gamestate.selections["shirt"] = path
 
-# --- READY ---
 func _ready():
 	# Category buttons
 	for category in category_buttons.keys():
 		var btn = category_buttons[category]
 		if btn:
-			# Capture category as a local variable to avoid closure issue
 			var cat = category
 			btn.pressed.connect(func() -> void:
 				_on_category_pressed(cat)
@@ -135,7 +138,6 @@ func _ready():
 		else:
 			push_warning("Category button missing: " + str(category))
 
-	# Option buttons
 	for i in range(option_slots.size()):
 		var slot = option_slots[i]
 		if slot and slot is Button:
@@ -146,13 +148,7 @@ func _ready():
 		else:
 			push_warning("Option button missing in slot %d" % i)
 
-	# Initialize Hair category
 	if category_buttons[Category.HAIR]:
 		category_buttons[Category.HAIR].emit_signal("pressed")
 		switch_category(Category.HAIR)
-
-func _on_category_pressed(category):
-	switch_category(category)
-
-func _on_option_pressed(index):
-	on_option_pressed(index)
+		
