@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d24qb2ggds5en"]
+[gd_scene load_steps=8 format=3 uid="uid://d24qb2ggds5en"]
 
 [ext_resource type="Texture2D" uid="uid://c3igjs4qttd07" path="res://assets/salon_background.jpg" id="1_hktbd"]
 [ext_resource type="Script" path="res://scripts/introduction.gd" id="1_jwdpu"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://8bl12luwgj06" path="res://assets/speech_bubble.png" id="4_d34ut"]
 [ext_resource type="FontFile" uid="uid://dt2ur755qe8v6" path="res://assets/Nunito-Bold.ttf" id="5_vektn"]
 [ext_resource type="PackedScene" uid="uid://bvfhagtxo8wnp" path="res://scenes/customer.tscn" id="6_prn01"]
+[ext_resource type="Texture2D" uid="uid://brjtbh42p3f3e" path="res://assets/character/chair.png" id="7_v012f"]
 
 [node name="Introduction" type="Node2D"]
 script = ExtResource("1_jwdpu")
@@ -59,5 +60,11 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Customer" parent="." instance=ExtResource("6_prn01")]
-position = Vector2(-207, 110)
+position = Vector2(-205, 104)
 scale = Vector2(0.25, 0.25)
+
+[node name="Chair" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-187, 54)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_v012f")
