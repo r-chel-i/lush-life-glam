@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpdun2qynctif"]
+[gd_scene load_steps=6 format=3 uid="uid://cpdun2qynctif"]
 
 [ext_resource type="Texture2D" uid="uid://c3igjs4qttd07" path="res://assets/salon_background.jpg" id="1_1bhcl"]
+[ext_resource type="Texture2D" uid="uid://s4kvboote0q5" path="res://assets/options_background.png" id="2_2xybg"]
+[ext_resource type="Texture2D" uid="uid://pwcoc31uu83i" path="res://assets/option_button.png" id="3_5vs16"]
+[ext_resource type="Texture2D" uid="uid://d2y84wqethdrn" path="res://assets/option_button_pressed.png" id="4_k0gba"]
+[ext_resource type="Texture2D" uid="uid://o8tv4us8i4q5" path="res://assets/option_button_hover.png" id="5_nhdvy"]
 
 [node name="Game" type="Node2D"]
 
@@ -11,3 +15,17 @@ z_index = -20
 position = Vector2(-0.161209, -0.278332)
 scale = Vector2(0.301614, 0.301614)
 texture = ExtResource("1_1bhcl")
+
+[node name="Options Background" type="Sprite2D" parent="."]
+position = Vector2(320, 5)
+scale = Vector2(0.644802, 0.644802)
+texture = ExtResource("2_2xybg")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 140.0
+offset_top = -116.0
+offset_right = 460.0
+offset_bottom = 217.0
+texture_normal = ExtResource("3_5vs16")
+texture_pressed = ExtResource("4_k0gba")
+texture_hover = ExtResource("5_nhdvy")
