@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdxyhpioexon1"]
+[gd_scene load_steps=7 format=3 uid="uid://cdxyhpioexon1"]
 
 [ext_resource type="Texture2D" uid="uid://c3igjs4qttd07" path="res://assets/salon_background.jpg" id="1_4mowy"]
 [ext_resource type="Script" path="res://scripts/criteria.gd" id="1_s4io2"]
 [ext_resource type="Texture2D" uid="uid://dh1ju1g1apsrj" path="res://assets/speech_bubble_tail.png" id="2_6t0gc"]
 [ext_resource type="Texture2D" uid="uid://8bl12luwgj06" path="res://assets/speech_bubble.png" id="3_h5po5"]
 [ext_resource type="FontFile" uid="uid://dt2ur755qe8v6" path="res://assets/Nunito-Bold.ttf" id="4_27ax6"]
+[ext_resource type="PackedScene" uid="uid://bvfhagtxo8wnp" path="res://scenes/customer.tscn" id="6_ad7i8"]
 
 [node name="Criteria" type="Node2D"]
 script = ExtResource("1_s4io2")
@@ -55,3 +56,7 @@ theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Customer" parent="." instance=ExtResource("6_ad7i8")]
+position = Vector2(-207, 110)
+scale = Vector2(0.25, 0.25)

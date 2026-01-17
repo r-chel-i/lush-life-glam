@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://bvfhagtxo8wnp"]
 
-[ext_resource type="Texture2D" uid="uid://dontbloejuiv1" path="res://assets/character/hair1_back.png" id="1_sur2c"]
-[ext_resource type="Texture2D" uid="uid://xu5y77fjhjhe" path="res://assets/character/body1.png" id="2_lbfno"]
-[ext_resource type="Texture2D" uid="uid://djo2x2ahinpke" path="res://assets/character/eyes1.png" id="3_t87ks"]
-[ext_resource type="Texture2D" uid="uid://cuxrqkqclb357" path="res://assets/character/eyebrows_1.png" id="4_rr2yy"]
-[ext_resource type="Texture2D" uid="uid://cytnkyninyevh" path="res://assets/character/lips_1.png" id="5_38qx1"]
-[ext_resource type="Texture2D" uid="uid://cr6neu6gd72s3" path="res://assets/character/shirt_1.png" id="6_wtq2w"]
-[ext_resource type="Texture2D" uid="uid://jwrlg37v4v2k" path="res://assets/character/hair1_front.png" id="7_am5b1"]
+[ext_resource type="Texture2D" uid="uid://dontbloejuiv1" path="res://assets/hair/hair1_back.png" id="1_xhhhn"]
+[ext_resource type="Texture2D" uid="uid://xu5y77fjhjhe" path="res://assets/body/body1.png" id="2_hmoj5"]
+[ext_resource type="Texture2D" uid="uid://djo2x2ahinpke" path="res://assets/eyes/eyes1.png" id="3_tgra6"]
+[ext_resource type="Texture2D" uid="uid://cuxrqkqclb357" path="res://assets/eyebrows/eyebrows1.png" id="4_ticpo"]
+[ext_resource type="Texture2D" uid="uid://cytnkyninyevh" path="res://assets/lips/lips1.png" id="5_fygbf"]
+[ext_resource type="Texture2D" uid="uid://cr6neu6gd72s3" path="res://assets/shirt/shirt1.png" id="6_cxnke"]
+[ext_resource type="Texture2D" uid="uid://jwrlg37v4v2k" path="res://assets/hair/hair1_front.png" id="7_jdirh"]
 
 [sub_resource type="GDScript" id="GDScript_qwbkk"]
 script/source = "extends Node2D
@@ -82,27 +82,27 @@ script = SubResource("GDScript_qwbkk")
 
 [node name="HairBack" type="Sprite2D" parent="."]
 z_index = -1
-texture = ExtResource("1_sur2c")
+texture = ExtResource("1_xhhhn")
 
 [node name="Body" type="Sprite2D" parent="."]
-texture = ExtResource("2_lbfno")
+texture = ExtResource("2_hmoj5")
 
 [node name="Eyes" type="Sprite2D" parent="."]
 z_index = 1
-texture = ExtResource("3_t87ks")
+texture = ExtResource("3_tgra6")
 
 [node name="Eyebrows" type="Sprite2D" parent="."]
 z_index = 2
-texture = ExtResource("4_rr2yy")
+texture = ExtResource("4_ticpo")
 
 [node name="Lips" type="Sprite2D" parent="."]
 z_index = 3
-texture = ExtResource("5_38qx1")
+texture = ExtResource("5_fygbf")
 
 [node name="Shirt" type="Sprite2D" parent="."]
 z_index = 4
-texture = ExtResource("6_wtq2w")
+texture = ExtResource("6_cxnke")
 
 [node name="HairFront" type="Sprite2D" parent="."]
 z_index = 5
-texture = ExtResource("7_am5b1")
+texture = ExtResource("7_jdirh")

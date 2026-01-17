@@ -1,17 +1,11 @@
 extends TextureButton
 
-@onready var cursor_normal = load("res://assets/cursor_normal.png")
-@onready var cursor_click = load("res://assets/cursor_click.png")
 
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	mouse_entered.connect(_on_mouse_entered)
-	mouse_exited.connect(_on_mouse_exited)
+	pass # Replace with function body.
 
-func _on_mouse_entered():
-	Input.set_custom_mouse_cursor(cursor_click)
 
-func _on_mouse_exited():
-	Input.set_custom_mouse_cursor(cursor_normal)
-
-func _exit_tree():
-	Input.set_custom_mouse_cursor(cursor_click)
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
