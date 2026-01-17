@@ -12,3 +12,6 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	Input.set_custom_mouse_cursor(cursor_normal)
+
+func _exit_tree():
+	Input.set_custom_mouse_cursor(null)
