@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpdun2qynctif"]
+
+[ext_resource type="Texture2D" uid="uid://c3igjs4qttd07" path="res://assets/salon_background.jpg" id="1_1bhcl"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-0.161209, -0.278332)
+scale = Vector2(0.301614, 0.301614)
+texture = ExtResource("1_1bhcl")
