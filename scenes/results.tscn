@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://cf4ktrocyvph7"]
+
+[ext_resource type="Texture2D" uid="uid://c3igjs4qttd07" path="res://assets/salon_background.jpg" id="1_5oq1a"]
+[ext_resource type="Script" path="res://scripts/results.gd" id="1_pkrx1"]
+[ext_resource type="PackedScene" uid="uid://bvfhagtxo8wnp" path="res://scenes/customer.tscn" id="2_8kocs"]
+[ext_resource type="Texture2D" uid="uid://doepp2q5n04te" path="res://assets/hair/chair.png" id="3_e26b3"]
+[ext_resource type="Texture2D" uid="uid://dh1ju1g1apsrj" path="res://assets/speech_bubble_tail.png" id="4_etiv1"]
+[ext_resource type="Texture2D" uid="uid://8bl12luwgj06" path="res://assets/speech_bubble.png" id="5_ghrx5"]
+[ext_resource type="FontFile" uid="uid://dt2ur755qe8v6" path="res://assets/Nunito-Bold.ttf" id="6_vfwgf"]
+[ext_resource type="Texture2D" uid="uid://cp4tatlampt4i" path="res://assets/replay.png" id="8_lm3xx"]
+[ext_resource type="AudioStream" uid="uid://cvpvfq2k0j71b" path="res://music/failure.mp3" id="8_sb1jk"]
+[ext_resource type="AudioStream" uid="uid://dehk0gfujspm1" path="res://music/success.mp3" id="8_tx807"]
+[ext_resource type="Texture2D" uid="uid://biaanfbhnlol1" path="res://assets/replay_pressed.png" id="9_svgye"]
+[ext_resource type="Texture2D" uid="uid://rjndpvrw74uc" path="res://assets/replay_hover.png" id="10_m1qlf"]
+[ext_resource type="Script" path="res://scripts/checkmark.gd" id="11_etnw5"]
+
+[node name="results" type="Node2D"]
+script = ExtResource("1_pkrx1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Reset Button" type="TextureButton" parent="."]
+z_index = 5
+offset_left = 434.0
+offset_top = 150.0
+offset_right = 617.0
+offset_bottom = 333.0
+texture_normal = ExtResource("8_lm3xx")
+texture_pressed = ExtResource("9_svgye")
+texture_hover = ExtResource("10_m1qlf")
+script = ExtResource("11_etnw5")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -20
+position = Vector2(-0.161209, -0.278332)
+scale = Vector2(0.301614, 0.301614)
+texture = ExtResource("1_5oq1a")
+
+[node name="Customer" parent="." instance=ExtResource("2_8kocs")]
+position = Vector2(-205, 104)
+scale = Vector2(0.25, 0.25)
+
+[node name="Chair" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(-193.25, 58.25)
+scale = Vector2(0.298096, 0.298096)
+texture = ExtResource("3_e26b3")
+
+[node name="Speech Bubble" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 103.545
+offset_top = 24.0
+offset_right = 103.545
+offset_bottom = 24.0
+scale = Vector2(1.0465, 1.12069)
+
+[node name="SpeechBubbleTail" type="Sprite2D" parent="Speech Bubble"]
+z_index = 1
+position = Vector2(0, 28.5538)
+texture = ExtResource("4_etiv1")
+
+[node name="Bubble" type="NinePatchRect" parent="Speech Bubble"]
+layout_mode = 0
+offset_left = -69.3215
+offset_top = -206.123
+offset_right = 371.678
+offset_bottom = 24.8769
+texture = ExtResource("5_ghrx5")
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 61
+
+[node name="Label" type="Label" parent="Speech Bubble"]
+z_index = 3
+layout_mode = 0
+offset_left = -28.0
+offset_top = -170.0
+offset_right = 332.0
+offset_bottom = -22.0
+theme_override_colors/font_color = Color(0.957031, 0.492188, 0.539063, 1)
+theme_override_fonts/font = ExtResource("6_vfwgf")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Fail Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_sb1jk")
+volume_db = -10.0
+
+[node name="Success Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_tx807")
+volume_db = -10.0

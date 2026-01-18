@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn2ucs4wct3j2"
-path="res://.godot/imported/lips_smile_4.png-9065d75a084da7aac5deac97775cb250.ctex"
+uid="uid://rjndpvrw74uc"
+path="res://.godot/imported/replay_hover.png-90877adf0e149e1b266990d21fd0c691.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lips/lips_smile_4.png"
-dest_files=["res://.godot/imported/lips_smile_4.png-9065d75a084da7aac5deac97775cb250.ctex"]
+source_file="res://assets/replay_hover.png"
+dest_files=["res://.godot/imported/replay_hover.png-90877adf0e149e1b266990d21fd0c691.ctex"]
 
 [params]
 

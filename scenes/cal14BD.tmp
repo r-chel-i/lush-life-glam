@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://db3w5lvlmuq3o"]
+[gd_scene load_steps=9 format=3 uid="uid://db3w5lvlmuq3o"]
 
 [ext_resource type="Texture2D" uid="uid://c3igjs4qttd07" path="res://assets/salon_background.jpg" id="1_pxv7r"]
 [ext_resource type="PackedScene" uid="uid://bvfhagtxo8wnp" path="res://scenes/customer.tscn" id="2_ydia2"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://8bl12luwgj06" path="res://assets/speech_bubble.png" id="6_022b8"]
 [ext_resource type="Texture2D" uid="uid://bp4ax364pq8eg" path="res://assets/mirror.png" id="7_ff0pr"]
 [ext_resource type="FontFile" uid="uid://dt2ur755qe8v6" path="res://assets/Nunito-Bold.ttf" id="7_v6u4s"]
-[ext_resource type="AudioStream" uid="uid://c5h6q4yxfrcnf" path="res://music/drum_roll.mp3" id="8_wefjs"]
 
 [sub_resource type="GDScript" id="GDScript_ofgc3"]
 script/source = "extends Node2D
@@ -39,7 +38,10 @@ func _ready():
 		speech_bubble.visible = false
 	if mirror:
 		mirror.visible = false
-	
+	show_dialogue()
+
+# Dialogue
+func show_dialogue():
 	label.text = \"I can't wait to see how I look! I'm sure you did stellar!\"
 	fade_in(speech_bubble)
 
@@ -55,12 +57,11 @@ func advance_state():
 	# Fade in mirror 
 	fade_in(mirror)
 	evaluate_outfit()
-	$\"Drum Roll\".play()
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(1.0).timeout
 
 	# Fade out mirror
 	fade_out(mirror)
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.35).timeout
 
 	# Go to results scene
 	get_tree().change_scene_to_file(\"res://scenes/results.tscn\")
@@ -71,15 +72,15 @@ func evaluate_outfit():
 func calculate_score() -> int:
 	var score := 80  # Base score
 
-	if Gamestate.selections.get(\"lips\") == \"res://assets/lips/lips3.png\":
+	if Gamestate.selections.get(\"Lips\") == \"res://assets/lips/lips3.png\":
 		score -= 40
-	if Gamestate.selections.get(\"shirt\") == \"res://assets/shirt/shirt1.png\":
+	if Gamestate.selections.get(\"Shirt\") == \"res://assets/shirt/shirt1.png\":
 		score -= 10
-	if Gamestate.selections.get(\"shirt\") == \"res://assets/shirt/shirt2.png\":
+	if Gamestate.selections.get(\"Shirt\") == \"res://assets/shirt/shirt2.png\":
 		score -= 30
-	if Gamestate.selections.get(\"shirt\") == \"res://assets/shirt/shirt3.png\":
+	if Gamestate.selections.get(\"Shirt\") == \"res://assets/shirt/shirt3.png\":
 		score += 20
-	if Gamestate.selections.get(\"shirt\") == \"res://assets/shirt/shirt3.png\":
+	if Gamestate.selections.get(\"Shirt\") == \"res://assets/shirt/shirt3.png\":
 		score += 40
 
 	return clamp(score, 0, 100)
@@ -152,7 +153,3 @@ z_index = 10
 position = Vector2(-203, 215)
 scale = Vector2(0.722672, 0.722672)
 texture = ExtResource("7_ff0pr")
-
-[node name="Drum Roll" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_wefjs")
-volume_db = -10.0

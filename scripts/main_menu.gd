@@ -15,6 +15,6 @@ func _on_play_pressed():
 
 	tween.finished.connect(func():
 		$TwinkleSound.play()
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(1.5).timeout
 		get_tree().change_scene_to_file("res://scenes/introduction.tscn")
 	)

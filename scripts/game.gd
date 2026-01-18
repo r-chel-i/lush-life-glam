@@ -3,9 +3,8 @@ extends Node2D
 enum Category { BODY, HAIR, EYES, EYEBROWS, LIPS, SHIRT }
 var current_category = Category.HAIR
 
-func _unhandled_input(event):
-	if event is InputEventMouseButton and event.pressed:
-		print("Global Click detected at: ", event.position)
+@onready var checkmark = $Checkmark
+@onready var options_bg = $"Options Background"
 
 @onready var targets = {
 	Category.BODY: $Customer/Body,
@@ -83,6 +82,19 @@ var options = {
 	],
 }
 
+# Fade transitions
+func fade_in_node(node: CanvasItem, duration: float = 0.5):
+	node.visible = true
+	node.modulate.a = 0.0
+	var tween = create_tween()
+	tween.tween_property(node, "modulate:a", 1.0, duration)
+	return tween
+
+func fade_out_node(node: CanvasItem, duration: float = 0.5):
+	var tween = create_tween()
+	tween.tween_property(node, "modulate:a", 0.0, duration)
+	tween.finished.connect(func(): node.visible = false)
+	return tween
 
 # Switch categories (hair, skin, etc.)
 func switch_category(category):
@@ -125,6 +137,7 @@ func _on_option_pressed(index):
 	swirling = true
 	particles.restart()
 	particles.emitting = true
+	$"Makeup Application".play()
 	
 	await get_tree().create_timer(1.9).timeout
 		
@@ -157,6 +170,23 @@ func _on_option_pressed(index):
 			Gamestate.selections["shirt"] = path
 
 func _ready():
+	
+	# Hide all UI
+	options_bg.visible = false
+	checkmark.visible = false
+	for btn in option_slots:
+		btn.visible = false
+	for cat_btn in category_buttons.values():
+		cat_btn.visible = false
+
+	# Fade in UI
+	fade_in_node(options_bg)
+	for btn in option_slots:
+		fade_in_node(btn)
+	for cat_btn in category_buttons.values():
+		fade_in_node(cat_btn)
+	fade_in_node(checkmark)
+	
 	# Category buttons
 	for category in category_buttons.keys():
 		var btn = category_buttons[category]
@@ -185,6 +215,8 @@ func _ready():
 	if category_buttons[Category.HAIR]:
 		category_buttons[Category.HAIR].emit_signal("pressed")
 		switch_category(Category.HAIR)
+	
+	checkmark.pressed.connect(_on_check_pressed)
 		
 
 func _process(delta):
@@ -211,3 +243,19 @@ func stop_swirl():
 	swirling = false
 	particles.emitting = false
 	
+
+# Move to next screen
+func _on_check_pressed():
+	checkmark.disabled = true
+	$"Twinkle Sound".play()
+	
+	fade_out_node(options_bg)
+	for btn in option_slots:
+		fade_out_node(btn)
+	for cat_btn in category_buttons.values():
+		fade_out_node(cat_btn)
+	fade_out_node(checkmark)
+	
+	await get_tree().create_timer(1.5).timeout
+	get_tree().change_scene_to_file("res://scenes/calculation.tscn")
+
