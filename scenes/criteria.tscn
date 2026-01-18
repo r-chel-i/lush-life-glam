@@ -31,7 +31,6 @@ scale = Vector2(1.0465, 1.12069)
 [node name="SpeechBubbleTail" type="Sprite2D" parent="Speech Bubble"]
 z_index = 1
 position = Vector2(0, 28.5538)
-scale = Vector2(1, 1)
 texture = ExtResource("2_6t0gc")
 
 [node name="Bubble" type="NinePatchRect" parent="Speech Bubble"]

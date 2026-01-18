@@ -24,9 +24,6 @@ func fade_out(node, duration := 0.4):
 	t.finished.connect(func(): node.visible = false)
 
 func _ready():
-	# Hide reset button initially
-	if reset_button:
-		reset_button.visible = false
 
 	# Show lips reaction
 	var score = Gamestate.score
@@ -48,13 +45,8 @@ func _ready():
 	# Show reaction dialogue
 	label.text = get_reaction_dialogue(score)
 	fade_in(speech_bubble)
-
-	# Connect reset button safely
-	if reset_button and reset_button is Button:
-		reset_button.pressed.connect(_on_reset_pressed)
-		fade_in(reset_button)
-	else:
-		push_warning("Reset Button is missing or not a Button!")
+	
+	reset_button.pressed.connect(_on_reset_pressed)
 
 
 func get_reaction_dialogue(score: int) -> String:
