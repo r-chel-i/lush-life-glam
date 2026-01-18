@@ -83,6 +83,7 @@ var options = {
 	],
 }
 
+
 # Switch categories (hair, skin, etc.)
 func switch_category(category):
 	current_category = category
@@ -112,6 +113,11 @@ func _on_option_pressed(index):
 	print("Button pressed!", index)
 	var path = options[current_category][index]
 	
+	if (current_category != 0) and (index == 3):
+		var popup = preload("res://scenes/toSurvey.tscn").instantiate()
+		add_child(popup)
+		return
+	
 	center = Vector2(-205,104)
 	angle = 0.0
 	radius = 0.0
@@ -121,6 +127,7 @@ func _on_option_pressed(index):
 	particles.emitting = true
 	
 	await get_tree().create_timer(1.9).timeout
+		
 
 	match current_category:
 		Category.HAIR:
@@ -203,3 +210,4 @@ func _process(delta):
 func stop_swirl():
 	swirling = false
 	particles.emitting = false
+	

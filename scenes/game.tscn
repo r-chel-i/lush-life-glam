@@ -168,6 +168,11 @@ mouse_filter = 2
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="Lock" type="TextureRect" parent="Option 4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Hair Select" type="TextureButton" parent="."]
 offset_left = 94.0
 offset_top = -280.0

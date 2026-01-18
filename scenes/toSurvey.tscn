@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://cjbr11xy0d4iv"]
+
+[ext_resource type="Script" path="res://scripts/toSurvey.gd" id="1_nt4ia"]
+[ext_resource type="Texture2D" uid="uid://c3imtbpa1wb47" path="res://assets/next_page.png" id="1_xlvao"]
+[ext_resource type="Texture2D" uid="uid://dab488ibikppj" path="res://assets/unpressed_survey.png" id="2_66mot"]
+[ext_resource type="Texture2D" uid="uid://8bl12luwgj06" path="res://assets/speech_bubble.png" id="2_aesrm"]
+[ext_resource type="Texture2D" uid="uid://cr7j3c13rj41p" path="res://assets/survey Button.png" id="3_w3vc5"]
+[ext_resource type="Texture2D" uid="uid://dp4hnaxp4axqg" path="res://assets/hover_survey.png" id="4_rwbyg"]
+[ext_resource type="Texture2D" uid="uid://c3igjs4qttd07" path="res://assets/salon_background.jpg" id="5_1u2tg"]
+
+[node name="toSurvey" type="Node2D"]
+script = ExtResource("1_nt4ia")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+z_index = 7
+position = Vector2(-1, -140)
+texture = ExtResource("2_aesrm")
+
+[node name="Label" type="Label" parent="Camera2D"]
+z_index = 7
+offset_left = -120.0
+offset_top = -279.0
+offset_right = 471.0
+offset_bottom = -21.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Please complete 
+this survey to 
+access this 
+customization or 
+click the triangle 
+to go back"
+
+[node name="goBack" type="TextureButton" parent="Camera2D"]
+z_index = 7
+offset_left = -100.0
+offset_top = 55.0
+offset_right = -30.0
+offset_bottom = 116.0
+rotation = 1.5708
+texture_normal = ExtResource("1_xlvao")
+
+[node name="survey" type="TextureButton" parent="Camera2D"]
+z_index = 7
+offset_left = -50.0
+offset_top = 50.0
+offset_right = 373.0
+offset_bottom = 206.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_66mot")
+texture_pressed = ExtResource("3_w3vc5")
+texture_hover = ExtResource("4_rwbyg")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = 6
+position = Vector2(-0.161209, -0.278332)
+scale = Vector2(0.301614, 0.301614)
+texture = ExtResource("5_1u2tg")
+
+[connection signal="pressed" from="Camera2D/goBack" to="." method="_on_go_back_pressed"]
+[connection signal="pressed" from="Camera2D/survey" to="." method="_on_survey_pressed"]
