@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3kgab34ogtcg"]
+[gd_scene load_steps=9 format=3 uid="uid://d3kgab34ogtcg"]
 
 [ext_resource type="Texture2D" uid="uid://dyvuy0gmmb6wl" path="res://assets/title.png" id="1_ao8sa"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ps7t1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bq1s0dc7qgd4e" path="res://assets/play_button_hover.png" id="5_d0qes"]
 [ext_resource type="Texture2D" uid="uid://c3igjs4qttd07" path="res://assets/salon_background.jpg" id="5_ymg6t"]
 [ext_resource type="Script" path="res://scripts/playbutton.gd" id="6_dpqya"]
+[ext_resource type="AudioStream" uid="uid://c71oxbctm6ov0" path="res://music/twinkle.mp3" id="8_pe3jq"]
 
 [node name="Main Menu" type="Node2D"]
 script = ExtResource("1_ps7t1")
@@ -35,5 +36,8 @@ z_index = -1
 position = Vector2(-0.161209, -0.278332)
 scale = Vector2(0.301614, 0.301614)
 texture = ExtResource("5_ymg6t")
+
+[node name="TwinkleSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_pe3jq")
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_pressed"]

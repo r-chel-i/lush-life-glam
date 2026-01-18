@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var speech_bubble = $"Speech Bubble" 
 @onready var label = $"Speech Bubble/Label"
+@onready var customer = $Customer
+@onready var chair = $Chair
 
 # Dialogue
 var dialogues = [
@@ -58,4 +60,12 @@ func _unhandled_input(event):
 func _ready():
 	if speech_bubble:
 		speech_bubble.visible = false
+	if customer:
+		customer.visible = false
+	if chair:
+		chair.visible = false
+
+	fade_in_node(customer, 0.5)
+	fade_in_node(chair, 0.5)
+
 	show_dialogue(current_index)
