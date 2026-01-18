@@ -1,15 +1,15 @@
-[gd_scene load_steps=39 format=3 uid="uid://cpdun2qynctif"]
+[gd_scene load_steps=41 format=3 uid="uid://cpdun2qynctif"]
 
 [ext_resource type="Texture2D" uid="uid://c3igjs4qttd07" path="res://assets/salon_background.jpg" id="1_1bhcl"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_1d3mw"]
 [ext_resource type="Texture2D" uid="uid://s4kvboote0q5" path="res://assets/options_background.png" id="2_2xybg"]
 [ext_resource type="Texture2D" uid="uid://pwcoc31uu83i" path="res://assets/option_button.png" id="3_5vs16"]
-[ext_resource type="ButtonGroup" uid="uid://bv1m2t806cxt6" path="res://scenes/option_buttons.tres" id="3_rus6t"]
+[ext_resource type="ButtonGroup" path="res://scenes/option_buttons.tres" id="3_rus6t"]
 [ext_resource type="Texture2D" uid="uid://d2y84wqethdrn" path="res://assets/option_button_pressed.png" id="4_k0gba"]
 [ext_resource type="Texture2D" uid="uid://o8tv4us8i4q5" path="res://assets/option_button_hover.png" id="5_nhdvy"]
 [ext_resource type="Texture2D" uid="uid://ciq2lj2xbr4sn" path="res://assets/hair_button_hover.png" id="6_3xl8d"]
 [ext_resource type="Texture2D" uid="uid://b1sr6jqlu5bnq" path="res://assets/hair_button.png" id="6_ejvla"]
-[ext_resource type="ButtonGroup" uid="uid://doln7xk8cowt6" path="res://scenes/category_buttons.tres" id="6_h3yce"]
+[ext_resource type="ButtonGroup" path="res://scenes/category_buttons.tres" id="6_h3yce"]
 [ext_resource type="Texture2D" uid="uid://7wu15xctjwk3" path="res://assets/hair_button_pressed.png" id="7_xbo52"]
 [ext_resource type="Script" path="res://scripts/option1.gd" id="8_jbue7"]
 [ext_resource type="Script" path="res://scripts/hair_select.gd" id="8_rca0v"]
@@ -38,6 +38,13 @@
 [ext_resource type="Script" path="res://scripts/shirt_select.gd" id="29_nj4vp"]
 [ext_resource type="PackedScene" uid="uid://bvfhagtxo8wnp" path="res://scenes/customer.tscn" id="37_aqpng"]
 [ext_resource type="Texture2D" uid="uid://doepp2q5n04te" path="res://assets/hair/chair.png" id="38_n55ob"]
+[ext_resource type="Texture2D" uid="uid://b8dxrtwo5degp" path="res://assets/blob.png" id="39_o0uke"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gya7y"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_1d3mw")
@@ -54,6 +61,15 @@ texture = ExtResource("1_1bhcl")
 position = Vector2(320, 5)
 scale = Vector2(0.644802, 0.644802)
 texture = ExtResource("2_2xybg")
+
+[node name="Transition" type="GPUParticles2D" parent="."]
+z_index = 6
+position = Vector2(-205, 104)
+scale = Vector2(4, 4)
+emitting = false
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_gya7y")
+texture = ExtResource("39_o0uke")
 
 [node name="Option 1" type="TextureButton" parent="."]
 offset_left = 97.0

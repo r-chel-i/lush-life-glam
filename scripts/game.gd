@@ -35,6 +35,15 @@ func _unhandled_input(event):
 	$"Option 4"
 ]
 
+@onready var particles := $Transition
+
+var angle := 0.0
+var radius := 0.0
+var center := Vector2(-205,104)
+var swirling := false
+var swirl_time := 0.0
+var swirl_duration := 2.0
+
 var options = {
 	Category.BODY: [
 		"res://assets/body/body1.png",
@@ -102,6 +111,16 @@ func clear_option_selection():
 func _on_option_pressed(index):
 	print("Button pressed!", index)
 	var path = options[current_category][index]
+	
+	center = Vector2(-205,104)
+	angle = 0.0
+	radius = 0.0
+	swirl_time = 0.0
+	swirling = true
+	particles.restart()
+	particles.emitting = true
+	
+	await get_tree().create_timer(1.9).timeout
 
 	match current_category:
 		Category.HAIR:
@@ -160,3 +179,27 @@ func _ready():
 		category_buttons[Category.HAIR].emit_signal("pressed")
 		switch_category(Category.HAIR)
 		
+
+func _process(delta):
+	if not swirling:
+		return
+
+	swirl_time += delta
+
+	if swirl_time >= swirl_duration:
+		stop_swirl()
+		return
+
+	angle += delta * 20.0
+	radius += delta * 140.0
+
+	var offset := Vector2(
+		cos(angle) * radius,
+		sin(angle) * radius
+	)
+
+	particles.position = center + offset
+
+func stop_swirl():
+	swirling = false
+	particles.emitting = false
