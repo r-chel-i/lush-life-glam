@@ -9,3 +9,5 @@ var selections := {
 	"lips": "res://assets/lips/lips1.png",
 	"shirt": "res://assets/shirt/shirt1.png"
 }
+
+var score: int = 0

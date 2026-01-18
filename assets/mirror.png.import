@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mrnhqxoqdsjx"
-path="res://.godot/imported/lips_smile_1.png-f8bb698ceb88540f00922a3a21fd7178.ctex"
+uid="uid://bp4ax364pq8eg"
+path="res://.godot/imported/mirror.png-d6dc28dcbed13c71804192551d55f50d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lips/lips_smile_1.png"
-dest_files=["res://.godot/imported/lips_smile_1.png-f8bb698ceb88540f00922a3a21fd7178.ctex"]
+source_file="res://assets/mirror.png"
+dest_files=["res://.godot/imported/mirror.png-d6dc28dcbed13c71804192551d55f50d.ctex"]
 
 [params]
 
