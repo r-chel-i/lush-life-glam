@@ -125,7 +125,7 @@ func _on_option_pressed(index):
 	print("Button pressed!", index)
 	var path = options[current_category][index]
 	
-	if (current_category != 0) and (index == 3):
+	if (current_category != 0) and (index == 3) and (Globals.unlocked == false):
 		var popup = preload("res://scenes/toSurvey.tscn").instantiate()
 		add_child(popup)
 		return

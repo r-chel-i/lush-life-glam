@@ -14,6 +14,5 @@ func _process(delta):
 func _on_go_back_pressed():
 	queue_free()
 
+	
 
-func _on_survey_pressed():
-	pass # Replace with function body. haiiiiiii

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjbr11xy0d4iv"]
+[gd_scene load_steps=10 format=3 uid="uid://cjbr11xy0d4iv"]
 
 [ext_resource type="Script" path="res://scripts/toSurvey.gd" id="1_nt4ia"]
 [ext_resource type="Texture2D" uid="uid://c3imtbpa1wb47" path="res://assets/next_page.png" id="1_xlvao"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cr7j3c13rj41p" path="res://assets/survey Button.png" id="3_w3vc5"]
 [ext_resource type="Texture2D" uid="uid://dp4hnaxp4axqg" path="res://assets/hover_survey.png" id="4_rwbyg"]
 [ext_resource type="Texture2D" uid="uid://c3igjs4qttd07" path="res://assets/salon_background.jpg" id="5_1u2tg"]
+[ext_resource type="Script" path="res://scenes/survey.gd" id="7_7k007"]
+[ext_resource type="Script" path="res://scenes/LineEdit.gd" id="8_5moux"]
 
 [node name="toSurvey" type="Node2D"]
 script = ExtResource("1_nt4ia")
@@ -22,16 +24,16 @@ texture = ExtResource("2_aesrm")
 z_index = 7
 offset_left = -120.0
 offset_top = -279.0
-offset_right = 471.0
+offset_right = 132.0
 offset_bottom = -21.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 21
 text = "Please complete 
-this survey to 
-access this 
+this survey to access this 
 customization or 
 click the triangle 
-to go back!"
+to go back! 
+Enter Code Here:"
 
 [node name="goBack" type="TextureButton" parent="Camera2D"]
 z_index = 7
@@ -52,6 +54,18 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("2_66mot")
 texture_pressed = ExtResource("3_w3vc5")
 texture_hover = ExtResource("4_rwbyg")
+script = ExtResource("7_7k007")
+link = "https://www.surveymonkey.com/r/RCDZ77J"
+
+[node name="LineEdit" type="LineEdit" parent="Camera2D"]
+z_index = 7
+offset_left = -89.0
+offset_top = -68.0
+offset_right = 67.0
+offset_bottom = -28.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+placeholder_text = "CODE"
+script = ExtResource("8_5moux")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = 6
@@ -60,4 +74,5 @@ scale = Vector2(0.301614, 0.301614)
 texture = ExtResource("5_1u2tg")
 
 [connection signal="pressed" from="Camera2D/goBack" to="." method="_on_go_back_pressed"]
-[connection signal="pressed" from="Camera2D/survey" to="." method="_on_survey_pressed"]
+[connection signal="pressed" from="Camera2D/survey" to="Camera2D/survey" method="_on_pressed"]
+[connection signal="text_submitted" from="Camera2D/LineEdit" to="Camera2D/LineEdit" method="_on_text_submitted"]

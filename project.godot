@@ -20,6 +20,7 @@ config/windows_native_icon="res://assets/icon.ico"
 
 Gamestate="*res://scripts/gamestate.gd"
 LushLifeBg="*res://scenes/lush_life_bg.tscn"
+Globals="*res://scripts/Globals.gd"
 
 [display]
 
