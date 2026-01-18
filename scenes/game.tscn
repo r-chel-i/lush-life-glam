@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cpdun2qynctif"]
+[gd_scene load_steps=48 format=3 uid="uid://cpdun2qynctif"]
 
 [ext_resource type="Texture2D" uid="uid://c3igjs4qttd07" path="res://assets/salon_background.jpg" id="1_1bhcl"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_1d3mw"]
@@ -45,6 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://crv1sfwu8bb4c" path="res://assets/checkmark_hover.png" id="41_nu3pj"]
 [ext_resource type="AudioStream" uid="uid://c71oxbctm6ov0" path="res://music/twinkle.mp3" id="42_exmgv"]
 [ext_resource type="Script" path="res://scripts/checkmark.gd" id="43_f7d3a"]
+[ext_resource type="Script" path="res://scripts/criteria_button.gd" id="46_wi4nb"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gya7y"]
 particle_flag_disable_z = true
@@ -290,3 +291,12 @@ stream = ExtResource("42_exmgv")
 
 [node name="Makeup Application" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("40_2febl")
+
+[node name="Criteria Button" type="Button" parent="."]
+offset_left = -374.0
+offset_top = -103.0
+offset_right = -38.0
+offset_bottom = 378.0
+focus_mode = 0
+flat = true
+script = ExtResource("46_wi4nb")
