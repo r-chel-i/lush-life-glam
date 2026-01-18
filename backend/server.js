@@ -4,17 +4,14 @@ import dotenv from "dotenv";
 import * as Survey from "./survey.js"
 
 dotenv.config();
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-import * as Survey from "./survey.js";
-
-dotenv.config();
 const app = express();
 
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
+app.get("/health", (req, res) => {
+    res.json({ ok: true });
+});
 
 app.get("/survey/:id", async (req, res) => {
     try {
@@ -55,5 +52,5 @@ app.post("/survey/:collectorId/submit", async (req, res) => {
     }
 });
 
-
-app.listen(3000);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Backend listening on port ${PORT}`));
