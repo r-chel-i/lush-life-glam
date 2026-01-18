@@ -31,7 +31,7 @@ this survey to
 access this 
 customization or 
 click the triangle 
-to go back"
+to go back!"
 
 [node name="goBack" type="TextureButton" parent="Camera2D"]
 z_index = 7

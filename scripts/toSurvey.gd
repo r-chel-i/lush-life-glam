@@ -16,4 +16,4 @@ func _on_go_back_pressed():
 
 
 func _on_survey_pressed():
-	pass # Replace with function body.
+	pass # Replace with function body. haiiiiiii
